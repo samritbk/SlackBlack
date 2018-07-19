@@ -89,15 +89,18 @@ document.addEventListener("DOMContentLoaded", function() {
     border-radius: 10px;
     background:transparent !important;
   }
-  ts-message:hover:not(.standalone):not(.multi_delete_mode):not(.highlight):not(.new_reply):not(.show_broadcast_indicator),
-  .c-message--last {
-    background: #999;
-  }
   .c-search__input_and_close{
     background:#222 !important;
   }
+  .c-search__input_box,
+  .c-search_autocomplete,
+  .c-search_autocomplete footer,
   .c-search__input_box__input{
     background:#222 !important;
+  }
+  span.truncate-left__size,
+  c-search_autocomplete__suggestion_icon{
+    color:#FFF !important;
   }
   .client_chat_list_container{
     background: #222 !important;
@@ -116,15 +119,15 @@ document.addEventListener("DOMContentLoaded", function() {
   
   span.c-message__body,
   a.c-message__sender_link,
-  span.c-message_attachment__media_trigger.c-message_attachment__media_trigger--caption,
+  span.c-message_attachment__media_trigger
+  .c-message_attachment__media_trigger--caption,
   div.p-message_pane__foreword__description span {
     color: #afafaf !important;
   }
-  pre.special_formatting {
-    background: #444 !important;
-    color: var(--text);
-    border: solid #CCC;
-    border-width: 1 px !important;
+  pre.special_formatting{
+    background: #111 !important;
+    color: var(--text) !important;
+    border: 1px solid #CCC !important;
   }
   span.c-message_attachment__text span{
     background:#222 !important;
@@ -135,11 +138,16 @@ document.addEventListener("DOMContentLoaded", function() {
   .c-message, .c-virtual_list__item {
     background-color: #141517 !important; /*primary background*/
   }
-  .ql-editor, .ql-blank,
+  .c-virtual_list__item:hover{
+    background-color: #222 !important;
+  }
+  .c-search_autocomplete__suggestion.c-search_autocomplete__suggestion__highlighted{
+    background: var(--primary) !important;
+  }
   .ql-editor.ql-blank p,
   .ql-editor.ql-blank span{
+    background: #222 !important;
     color: #FFF !important;
-    background:#222 !important;
   }
   .inline_message_input_container form{
     background: #141517 !important;
@@ -177,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   .p-channel_sidebar__banner--unreads,
-  .msg_inline_attaachment_column.column_border{ /* Unread banner top and bottom */
+  .msg_inline_attachment_column.column_border{ /* Unread banner top and bottom */
     background: var(--primary) !important;
   }
 
@@ -192,29 +200,22 @@ document.addEventListener("DOMContentLoaded", function() {
     background:#444;
   }
   .c-message_actions__container, 
+  .action_hover_container,
   .c-message__reply_bar_view_thread{
     background:#444 !important;
+    border: 1px solid #222 !important;
   }
-  .action_hover_container{
-    border-color: #444 !important;
-  }
+  .c-message_actions__container:hover
+  .action_hover_container:hover,
   .c-message_actions__container:hover{ /* Actions container on message */
     background: #222 !important;
-    color: #FFF;
-  }
-  ts-message .action_hover_container{
-    background: #222 !important;
-  }
-  ts-message .action_hover_container:hover{
-    background: #444 !important;
+    color: #FFF !important;
   }
 
-  ts-message .action_hover_container .btn_msg_action{
-    background:transparent !important;
+  .action_hover_container.btn_msg_action{
+    border-right: #222 !important;
   }
-  ts-message .action_hover_container .btn_msg_action:hover{
-    background: #222 !important;
-  }
+
   .c-message_list__day_divider__label__pill, /* Divider per day (Today) */
   .c-message__body blockquote, /* Block quotes */
   .special_formatting_quote,
@@ -226,7 +227,8 @@ document.addEventListener("DOMContentLoaded", function() {
     background: var(--primary) !important;
   }
 
-  .c-message__attachments{
+  .c-message__attachments,
+  .inline_attachment.standalone{
     background: #222 !important;
     margin-bottom:2px;
   }
@@ -257,7 +259,8 @@ document.addEventListener("DOMContentLoaded", function() {
   .c-file-_container--gradient:after{
     backgroud:linear-gradient(180deg, hsla(0,0%,100%,0,#666)) !important;
   }
-  .c-message_attachment__border{
+  .c-message_attachment__border,
+  .inline_attachment.standalone column_border{
     background: #009B91 !important;
   }
   .c-member_slug--link{
@@ -322,6 +325,18 @@ document.addEventListener("DOMContentLoaded", function() {
   .p-message_pane__top_banners{
     background: #333 !important;
   }
+  .unread_msgs_loading,
+  .unread_msgs_loading_msg{
+    background: #333 !important;
+    color: #FFF !important;
+  }
+  .ts_icon:before,
+  .ts_icon_all_files,
+  .flexpane_menu_item .ts_icon_all_files,
+  ts-icon{
+    color: var(--primary) !important;
+  }
+  
   `
 
   // Insert a style tag into the wrapper view
