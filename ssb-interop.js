@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Fetch our CSS in parallel ahead of time
   const cssPath = 'https://cdn.rawgit.com/widget-/slack-black-theme/master/custom.css';
-  let cssPromise = fetch(cssPath).then(response => response.text());
+  let cssPromise = fetch(cssPath).then(response => response.text()).catch(error => alert("Problem"));
 
   //let cssPromise = require('./myStyle.css').text();
   
@@ -80,12 +80,16 @@ document.addEventListener("DOMContentLoaded", function() {
     --background-elevated: #141517; /*Bar at the top and side */
     --scrollbar-background: #282C34;
     --scrollbar-border: var(--primary);
+    --white: #FFF;
+  }
+  *{
+    color:#CCC !important;
   }
   .c-mrkdwn__highlight,
   .c-mrkdwn__mention{ /* Search marks in Cyan */
     border: 1px solid var(--primary) !important;
-    border-radius: 5px !important;
-    padding:2px !important;
+    border-radius: 2px !important;
+    padding:1px 2px !important;
     border-radius: 10px;
     background:transparent !important;
   }
@@ -100,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   span.truncate-left__size,
   c-search_autocomplete__suggestion_icon{
-    color:#FFF !important;
+    color:var(--white) !important;
   }
   .client_chat_list_container{
     background: #222 !important;
@@ -136,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
     background: var(--text);
   }
   .c-message, .c-virtual_list__item {
-    background-color: #141517 !important; /*primary background*/
+    background-color: var(--background) !important; /*primary background*/
   }
   .c-virtual_list__item:hover{
     background-color: #222 !important;
@@ -147,10 +151,14 @@ document.addEventListener("DOMContentLoaded", function() {
   .ql-editor.ql-blank p,
   .ql-editor.ql-blank span{
     background: #222 !important;
-    color: #FFF !important;
+    color: var(--white) !important;
+  }
+  #msg_input .ql-editor.ql-blank p{
+    background: var(--background) !important;
+    color: var(--white) !important;
   }
   .inline_message_input_container form{
-    background: #141517 !important;
+    background: var(--background) !important;
   }
 
   p-notification_bar__formatting{
@@ -160,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .c-mrkdwn__broadcast--link, 
   .c-mrkdwn__broadcast--mention{
     background: transparent !important;
-    color: var(--primary);
+    color: var(--primary) !important;
   }
   .c-deprecated_button ,
   .c-deprecated_button--link, 
@@ -168,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .c-mrkdwn__user_group--link, 
   .c-mrkdwn__user_group--mention{
     background: transparent !important;
-    color: var(--primary);
+    color: var(--primary) !important;
   }
   code{  /* code and preformatted*/
     background: #222 !important;
@@ -209,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .action_hover_container:hover,
   .c-message_actions__container:hover{ /* Actions container on message */
     background: #222 !important;
-    color: #FFF !important;
+    color: var(--white) !important;
   }
 
   .action_hover_container.btn_msg_action{
@@ -221,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .special_formatting_quote,
   .c-scrollbar__child{
     background: #222 !important;
-    color: #CCC;
+    color: #CCC !important;
   }
   .c-message__body blockquote:before{
     background: var(--primary) !important;
@@ -242,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function() {
     background: #222 !important;
   }
   .c-file__title,.c-file__meta{
-    color: var(--text);
+    color: var(--text) !important;
   }
   .c-file_container--has_thumb .c-file__actions:before{
     background: transparent !important;
@@ -250,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .c-file__action_button, 
   .c-file__action_button:link, 
   .c-file__action_button:visited{
-    color:#FCFCFC;
+    color:#FCFCFC !important;
     background: #666;
   }
   .p-channel_sidebar__static_list > div:first-of-type{
@@ -277,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .c-scrollbar__hider:before,  /* Top bar */
   .channel_header{
     background-color: #222 !important;
-    color: var(--text);
+    color: var(--text) !important;
   }
   .c-scrollbar__hider{
     border-botton:1px solid #333;
@@ -287,14 +295,11 @@ document.addEventListener("DOMContentLoaded", function() {
     border-color: #222 !important;
   }
   .c-reaction .c-reaction__count{
-    color: #aaa;
+    color: #aaa !important;
     margin-left: 2px;
   }
-  #footer_msg{
-    background: #222;
-  }
   #channel_name{
-    color:#EEE;
+    color:#EEE !important;
   }
   #channel_header_info,
   #channel_topic_text{
@@ -307,18 +312,19 @@ document.addEventListener("DOMContentLoaded", function() {
     background:#000 !important;
   }
   .p-channel_sidebar__name:hover{
-    color: #FFF !important;
+    color: var(--white) !important;
   }
   #footer{
-    background: #222 !important;
+    background: transparent !important;
     padding-top:8px !important;
+    margin-left:1px !important;
   }
   #client_body::before{
     background: #222 !important;
     border: 0px !important;
   }
   .presence_icon{
-    color: var(--primary);
+    color: var(--primary) !important;
   }
   .p-history_container,
   .message_pane_scroller,
@@ -328,16 +334,26 @@ document.addEventListener("DOMContentLoaded", function() {
   .unread_msgs_loading,
   .unread_msgs_loading_msg{
     background: #333 !important;
-    color: #FFF !important;
+    color: var(--white) !important;
   }
-  .ts_icon:before,
-  .ts_icon_all_files,
-  .flexpane_menu_item .ts_icon_all_files,
-  ts-icon{
+  .ts_icon_all_files:hover,
+  .flexpane_menu_item .ts_icon_all_files:hover,
+  ts-icon:hover,
+  .channel_header_icon:hover ts-icon{
     color: var(--primary) !important;
   }
-  
-  `
+.c-react_search_input:active .icon_search_wrapper *,
+.c-react_search_input:active .search_input_wrapper *,
+.c-react_search_input:focus .icon_search_wrapper *,
+.c-react_search_input:focus .search_input_wrapper *,
+.c-react_search_input:hover .icon_search_wrapper *,
+.c-react_search_input:hover .search_input_wrapper *{
+  color: var(--primary) !important;
+}
+.c-icon--presence-online{
+  color:var(--primary) !important;
+}
+`
 
   // Insert a style tag into the wrapper view
   cssPromise.then(css => {
