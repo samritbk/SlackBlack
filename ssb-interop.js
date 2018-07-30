@@ -82,9 +82,6 @@ document.addEventListener("DOMContentLoaded", function() {
     --scrollbar-border: var(--primary);
     --white: #FFF;
   }
-  *{
-    color:#CCC !important;
-  }
   .c-mrkdwn__highlight,
   .c-mrkdwn__mention{ /* Search marks in Cyan */
     border: 1px solid var(--primary) !important;
@@ -153,14 +150,21 @@ document.addEventListener("DOMContentLoaded", function() {
     background: #222 !important;
     color: var(--white) !important;
   }
-  #msg_input .ql-editor.ql-blank p{
+  #msg_input .ql-editor.ql-blank p,
+  #inline_message_input_1 .ql-editor.ql-blank p{
     background: var(--background) !important;
     color: var(--white) !important;
   }
   .inline_message_input_container form{
     background: var(--background) !important;
   }
-
+  .c-menu.p-message_actions_menu{
+    background: var(--background) !important;
+    color:var(--text) !important;
+  }
+  .menu_item__button--highlighted{
+    background-color:var(--primary) !important;
+  }
   p-notification_bar__formatting{
     color: var(--text) !important;
   }
@@ -202,26 +206,30 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   .c-message__reply_bar{ /* Open thread bar on message */
-    background:#222;
+    background: #333 !important;
   }
   .c-message__reply_bar:hover{ /* Open thread bar on message: hovered */
     background:#444;
   }
-  .c-message_actions__container, 
-  .action_hover_container,
+  
   .c-message__reply_bar_view_thread{
+    background:transparent !important;
+  }
+  .c-message_actions__container,
+  ts-message .action_hover_container{
     background:#444 !important;
     border: 1px solid #222 !important;
   }
-  .c-message_actions__container:hover
-  .action_hover_container:hover,
-  .c-message_actions__container:hover{ /* Actions container on message */
+  .c-message_actions__container:hover,
+  ts-message .action_hover_container:hover{ /* Actions container on message */
     background: #222 !important;
-    color: var(--white) !important;
+    color: var(--primary) !important;
+    box-shadow: none !important;
+    border-color: rgba(0,0,0,.3) !important;
   }
 
-  .action_hover_container.btn_msg_action{
-    border-right: #222 !important;
+  ts-message .action_hover_container .btn_msg_action{
+    margin-top:-8px !important;
   }
 
   .c-message_list__day_divider__label__pill, /* Divider per day (Today) */
