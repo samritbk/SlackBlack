@@ -215,23 +215,6 @@ document.addEventListener("DOMContentLoaded", function() {
   .c-message__reply_bar_view_thread{
     background:transparent !important;
   }
-  .c-message_actions__container,
-  ts-message .action_hover_container{
-    background:#444 !important;
-    border: 1px solid #222 !important;
-  }
-  .c-message_actions__container:hover,
-  ts-message .action_hover_container:hover{ /* Actions container on message */
-    background: #222 !important;
-    color: var(--primary) !important;
-    box-shadow: none !important;
-    border-color: rgba(0,0,0,.3) !important;
-  }
-
-  ts-message .action_hover_container .btn_msg_action{
-    margin-top:-8px !important;
-  }
-
   .c-message_list__day_divider__label__pill, /* Divider per day (Today) */
   .c-message__body blockquote, /* Block quotes */
   .special_formatting_quote,
@@ -250,6 +233,16 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   .c-message_attachment__text{
     background: #DDD;
+  }
+  .c-email__sender_collapsed,
+  .c-email__title_collapsed{
+    color: #eee;
+  }
+  .c-message_attachment__pretext,
+  .c-message_attachment__author_name,
+  .c-message_attachment__field_title{
+    color: #eee;
+    margin-left: 5px;
   }
   .c-virtual_scrollbar__hider:before{ /* */
     background: #222 !important;
@@ -286,6 +279,21 @@ document.addEventListener("DOMContentLoaded", function() {
   ts-message {
     margin: 1px 5px; !important; 
     box-shadow: none !important;
+  }
+  .c-message_actions__container,
+  ts-message .action_hover_container{
+    background:#444 !important;
+    border: 1px solid #222 !important;
+  }
+  .c-message_actions__container{
+    height: 28px !important;
+  }
+  .c-message_actions__container:hover,
+  ts-message .action_hover_container:hover{ /* Actions container on message */
+    background: #222 !important;
+    color: var(--primary) !important;
+    box-shadow: none !important;
+    border-color: rgba(0,0,0,.3) !important;
   }
   .c-message_attachment__field_value{
     color: var(--text);
@@ -360,6 +368,40 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 .c-icon--presence-online{
   color:var(--primary) !important;
+}
+.message_input .ql-editor,
+.c-message__editor__input .ql-editor{
+  background: var(--background) !important;
+  color: var(--white);
+  margin-right:0px;
+}
+.message_input,
+.c-message__editor__input{
+  border-color: var(--primary) !important;
+}
+.c-button-unstyled.c-message__editor__emoji_menu i{
+  color: var(--white);
+}
+#message_edit_form.btn.btn_small,
+.c-button--primary{
+  background: var(--primary);
+  color: var(--white);
+}
+.rxn .emoji-sizer {
+  background-color: transparent !important;
+  border-radius: 7px;
+  width: 14px;
+  height: 14px;
+  margin: 0 0 0 -2px !important;
+  border: 1px solid transparent; /* looks silly but it makes the outline work */
+}
+.rxn[data-emoji] {
+  /*background-color: var(--background-light) !important;
+  transition: background-color 200ms ease-in;*/
+  height: 25px;
+}
+.message_input.ql-editor{
+
 }
 `
 
